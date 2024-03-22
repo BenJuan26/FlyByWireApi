@@ -31,6 +31,10 @@ export default () => ({
         expires: process.env.AUTH_EXPIRES || '12h',
     },
     github: { token: envOrFile('GITHUB_TOKEN', './secrets/github_token.txt') || '' },
+    chartfox: {
+        clientId: process.env.CHARTFOX_CLIENT_ID || '',
+        redirectUri: process.env.CHARTFOX_REDIRECT_URI || 'https://api.flybywiresim.com/chartfox/callback',
+    },
 });
 
 function envOrFile(envName: string, defaultPath?: string): string {
