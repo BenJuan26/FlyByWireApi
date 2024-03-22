@@ -19,14 +19,14 @@ export class Session {
     createDate: Date
 
     @Column({ type: String, nullable: true })
-    verifier: string
+    verifier?: string
 
     @Column({ type: String, length: 4096, nullable: true })
-    accessToken: string
+    accessToken?: string
 
     @Column({ type: String, length: 1024, nullable: true })
-    refreshToken: string
+    refreshToken?: string
 
     @Column({ type: Date, nullable: true })
-    tokenExpiryDate: Date
+    tokenExpiryDate?: Date
 }

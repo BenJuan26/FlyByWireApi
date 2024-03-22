@@ -88,11 +88,13 @@ export class AuthController {
 
     @Post('/chartfox/session')
     async newChartfoxSession() {
-        return this.authService.newSession();
+        const session = await this.authService.newSession();
+        return this.authService.filterSession(session);
     }
 
     @Get('/chartfox/session/:id')
     async getSession(@Param() params: { id: string }) {
-        return this.authService.getSession(params.id);
+        const session = await this.authService.getSession(params.id);
+        return this.authService.filterSession(session);
     }
 }

@@ -22,4 +22,16 @@ export class AuthService {
     async saveSession(session: Session): Promise<Session> {
         return this.sessionRepo.save(session);
     }
+
+    filterSession(session: Session): Session {
+        for (const [k, v] of Object.entries(session)) {
+            if (!v) {
+                delete session[k];
+            }
+        }
+
+        delete session.verifier;
+
+        return session;
+    }
 }
